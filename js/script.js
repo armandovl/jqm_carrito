@@ -81,7 +81,7 @@ function selectIn(table, whereIn, params) {
 
 //#region Login Operations
 async function validateLogin() {
-    let users = await select('USERS', 'email', [$("#username").val()]);
+    let users = await select('USERS', 'email', [$("#username").val()]); //email - name
     if (users.length > 0 && users[0]["password"] == $("#password2").val()) {
         return users;
     }
