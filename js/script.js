@@ -65,6 +65,22 @@ function select(table, where = null, params = []) {
     });
 };
 
+
+//agregar alertas
+
+function alertas(){
+
+    alert("se ha enviado el pedido");
+    alert("desea salir de la navegación");
+}
+
+
+function alertaCompra(){
+
+    alert("ver el carrito");
+    alert("vaciar carrito");
+}
+
 function selectIn(table, whereIn, params) {
     const query = `SELECT * FROM ${table} WHERE ${whereIn} in (${Array.from(params, x => '?').join(",")})`;
     return new Promise(resolve => {
@@ -202,19 +218,6 @@ function addProducts() {
         [4, 'Samsung 55" 4K', 'tv', '800', '10', 'https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/129/12943/12943557.jpg'],
     ];
     values.forEach(e => insert('PRODUCTS', fields, e));
-}
-
-function alerta{
-
-    alert("cuando se hace una compra");
-    alert("cuando se abandona el carrito de compras");
-
-}
-
-function alerta2{
-
-    alert("cuando se han introducido mal los datos");
-
 }
 
 
