@@ -1,2 +1,2 @@
-# jquerymobile_ecommerce
-Prueba borrar
+# jqm_carrito
+Carrito de compras modificado para tienda lulu
