@@ -143,9 +143,9 @@ async function currentProfile() {
     if (isLogged()) {
         let users = await select('USERS', 'email', [isLogged()]);
         $("#welcome").text("Welcome " + users[0]["name"]);
-        $("#profEmail").text("Email/Username: " + users[0]["email"]);
-        $("#profLogin").text("Login: " + users[0]["email"]);
-        $("#profName").text("Name: " + users[0]["name"]);
+        $("#profEmail").text("Usuario / Email: " + users[0]["email"]);
+        $("#profLogin").text("Usuario: " + users[0]["email"]);
+        $("#profName").text("Email: " + users[0]["name"]);
     }
 };
 //#endregion

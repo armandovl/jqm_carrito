@@ -73,7 +73,7 @@
             <h1>Registrarse</h1>
         </header>
         <section data-role="content">
-            <input type="text" name="username" id="username" placeholder="Usuario-Email" data-clear-btn="true">
+            <input type="text" name="username" id="username" placeholder="Usuario" data-clear-btn="true">
             <input type="password" name="password2" id="password2" placeholder="Contraseña" data-clear-btn="true"
                 autocomplete="off">
             <button id="login" class="ui-btn ui-btn-inline">Ingresar</button>
@@ -88,9 +88,10 @@
         </header>
         <section data-role="content">
             <form id="regForm">
-                <input type="email" class="form" name="regName" id="regName" placeholder="Correo-Name">
-                <input type="text" class="form" name="regEmail" id="regEmail" placeholder="Usuario-Email">
-                <input type="password" class="form" name="regPassword" id="regPassword" placeholder="Contraseña">
+                <!------ voy a quitar  los "name" para después ligarlos con formulario ---------->
+                <input type="email" class="form" name="" id="regName" placeholder="Correo">
+                <input type="text" class="form" name="" id="regEmail" placeholder="Usuario">
+                <input type="password" class="form" name="" id="regPassword" placeholder="Contraseña">
                 <a href="#" id="register" data-rel="popup" class="ui-btn">Enviar</a>
                 <div id="popup" data-role="popup" class="ui-content">Todos los campos son obligatorios</div>
             </form>
