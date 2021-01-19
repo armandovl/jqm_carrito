@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <!-- Hasta aquí lo estamos importando tal y como esta-->
 <!-- 18-01-2021-->
+<!--https://github.com/rodvlima/jquery-mobile-ecommerce-->
 <html>
 <head>
     <title>Tiendita Lulu</title>
@@ -60,6 +61,7 @@
                         </div>
                         <div class="ui-body ui-body-a">
                             <label id="profLogin"></label>
+                            <label id="profPhone"></label>
                             <label id="profName"></label>
                         </div>
                         <a href="#updatePage" class="ui-btn">Actualizar Información</a>
@@ -89,8 +91,9 @@
         <section data-role="content">
             <form id="regForm">
                 <!------ voy a quitar  los "name" para después ligarlos con formulario ---------->
-                <input type="email" class="form" name="" id="regName" placeholder="Correo">
                 <input type="text" class="form" name="" id="regEmail" placeholder="Usuario">
+                <input type="number" class="form" name="" id="regPhone" placeholder="Teléfono">
+                <input type="email" class="form" name="" id="regName" placeholder="Correo">
                 <input type="password" class="form" name="" id="regPassword" placeholder="Contraseña">
                 <a href="#" id="register" data-rel="popup" class="ui-btn">Enviar</a>
                 <div id="popup" data-role="popup" class="ui-content">Todos los campos son obligatorios</div>

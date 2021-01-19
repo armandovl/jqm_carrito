@@ -25,7 +25,7 @@ function openDB() {
 
 function createTables() {
     openDB().transaction(function (tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS USERS (email unique, name, password)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS USERS (email unique, name, password, phone)');//PHONE**
         tx.executeSql('CREATE TABLE IF NOT EXISTS PRODUCTS (id unique,product,category,price,quantity,image)');
         tx.executeSql('CREATE TABLE IF NOT EXISTS CART (username,productId,quantity)');
     });
@@ -81,7 +81,7 @@ function selectIn(table, whereIn, params) {
 
 //#region Login Operations
 async function validateLogin() {
-    let users = await select('USERS', 'email', [$("#username").val()]); //email - name
+    let users = await select('USERS', 'email', [$("#username").val()]); 
     if (users.length > 0 && users[0]["password"] == $("#password2").val()) {
         return users;
     }
@@ -132,7 +132,9 @@ function registerNewUser() {
     const fields = $("#regForm input")
     const isValid = validateEmptyFields(fields);
     if (isValid) {
-        insert('USERS', ['email', 'name', 'password'], [$("#regEmail").val(), $("#regName").val(), $("#regPassword").val()]);
+        insert('USERS', ['email','name','password', 'phone'], //PHONE*
+                        [$("#regEmail").val(), $("#regName").val(), $("#regPassword").val(), $("#regPhone").val()]
+                        ); //PHONE*
         window.location = "#loginPage";
     } else {
         $("#popup").popup("open");
@@ -146,6 +148,7 @@ async function currentProfile() {
         $("#profEmail").text("Usuario / Email: " + users[0]["email"]);
         $("#profLogin").text("Usuario: " + users[0]["email"]);
         $("#profName").text("Email: " + users[0]["name"]);
+        $("#profPhone").text("Telefono: " + users[0]["phone"]); //PHONE*
     }
 };
 //#endregion
@@ -193,10 +196,10 @@ async function updateProductSelected(id) {
 function addProducts() {
     const fields = ['id', 'product', 'category', 'price', 'quantity', 'image'];
     const values = [
-        [1, 'iPhone X 64GB', 'smartphone', '1000', '1', 'https://image.coolblue.be/422x390/products/1033437'],
-        [2, 'Apple iPhone 8', 'smartphone', '1300', '1', 'https://image.coolblue.be/max/270x220/products/1033402'],
-        [3, 'Toshiba 50" 4K', 'tv', '2300', '1', 'https://multimedia.bbycastatic.ca/multimedia/products/500x500/125/12598/12598561.jpg'],
-        [4, 'Samsung 55" 4K', 'tv', '800', '1', 'https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/129/12943/12943557.jpg'],
+        [1, 'iPhone X 64GB', 'smartphone', '1000', '10', 'https://image.coolblue.be/422x390/products/1033437'],
+        [2, 'Apple iPhone 8', 'smartphone', '1300', '10', 'https://image.coolblue.be/max/270x220/products/1033402'],
+        [3, 'Toshiba 50" 4K', 'tv', '2300', '10', 'https://multimedia.bbycastatic.ca/multimedia/products/500x500/125/12598/12598561.jpg'],
+        [4, 'Samsung 55" 4K', 'tv', '800', '10', 'https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/129/12943/12943557.jpg'],
     ];
     values.forEach(e => insert('PRODUCTS', fields, e));
 }
