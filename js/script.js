@@ -204,6 +204,21 @@ function addProducts() {
     values.forEach(e => insert('PRODUCTS', fields, e));
 }
 
+function alerta{
+
+    alert("cuando se hace una compra");
+    alert("cuando se abandona el carrito de compras");
+
+}
+
+function alerta2{
+
+    alert("cuando se han introducido mal los datos");
+
+}
+
+
+
 function templateListProducts(products) {
     return products.map(product => `
             <li class="ui-li-has-thumb">
