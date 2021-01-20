@@ -66,20 +66,6 @@ function select(table, where = null, params = []) {
 };
 
 
-//agregar alertas
-
-function alertas(){
-
-    alert("se ha enviado el pedido");
-    alert("desea salir de la navegación");
-}
-
-
-function alertaCompra(){
-
-    alert("ver el carrito");
-    alert("vaciar carrito");
-}
 
 function selectIn(table, whereIn, params) {
     const query = `SELECT * FROM ${table} WHERE ${whereIn} in (${Array.from(params, x => '?').join(",")})`;
