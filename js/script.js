@@ -17,7 +17,7 @@ async function init(params) {
     await loadProducts();
     await loadCart();
 }
-//#region Database Operations
+
 function openDB() {
     const db = openDatabase('MyDataBase', '1.0', 'Project', 2 * 1024 * 1024);
     return db;
@@ -79,9 +79,7 @@ function selectIn(table, whereIn, params) {
         });
     });
 }
-//#endregion
 
-//#region Login Operations
 async function validateLogin() {
     let users = await select('USERS', 'email', [$("#username").val()]); 
     if (users.length > 0 && users[0]["password"] == $("#password2").val()) {
@@ -114,9 +112,7 @@ async function login() {
         $("#error-sign-in").popup("open");
     };
 }
-//#endregion
 
-// #region User Operations
 function updateUserInfo() {
     const fields = $("#updForm input");
     const isValid = validateEmptyFields(fields);
@@ -228,10 +224,10 @@ function templateListProducts(products) {
 
 function templateProductDetail(product) {
     return `<div id="details-page-content">
-                <h1>Name: ${product.product}</h1>
-                <p>Category: ${product.category}</p>
-                <p>Price: ${product.price}</p>
-                <p>${product.quantity > 0?product.quantity+" in Stock":"Not Avalilable"}</p>
+                <h1>Nombre: ${product.product}</h1>
+                <p>Categoría: ${product.category}</p>
+                <p>Precio: ${product.price}</p>
+                <p>${product.quantity > 0?product.quantity+" en tienda":"Not Avalilable"}</p>
                 <img width="200" src="${product.image}"
                     alt="">
                 <form>
@@ -307,9 +303,7 @@ async function updateQuantity(operator,productId){
     return true;
 }
 
-//#endregion
 
-//#region Cart Operations
 async function getProductCart(product) {
     const email = isLogged();
     const productFromTable = await select('CART', 'username', [email]);
@@ -352,7 +346,7 @@ async function loadCart() {
     });
     $('#list-cart').listview("refresh");
 
-//#endregion
+
 
 //agregue esta es la chida..............................
 localStorage.setItem("datos_carrito",JSON.stringify(cart));
@@ -366,6 +360,4 @@ function imprimir() {
     alert( localStorage.getItem("datos_carrito"));
     alert( localStorage.getItem("isLogged"));
     alert(localStorage.getItem("datos_usuario"));;
-
-
 };
